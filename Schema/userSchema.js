@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userScheama = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -15,4 +15,4 @@ const userScheama = new mongoose.Schema({
     }
 });
 
-mongoose.model("User", userScheama);
+mongoose.model("User", userSchema);

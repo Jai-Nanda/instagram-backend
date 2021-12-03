@@ -4,11 +4,22 @@ const mongoose = require('mongoose')
 const User = mongoose.model("User")
 const protect = require('../middleware/protect')
 
-router.post('/createpost', protect, (req, res) => {
-    const { title, body } = req.body
-    if (!title || !body) {
-        return res.status(422).json({error:"please add all the fields"})
+router.post('/createpost',protect,(req,res)=>{
+    const {title,body,pic} = req.body 
+    if(!title || !body){
+      return  res.status(422).json({error:"Plase add all the fields"})
     }
-    console.log(req.user)
-    res.send("hello")
+    req.user.password = undefined
+    const post = new Post({
+        title,
+        body,
+        photo:pic,
+        postedBy:req.user
+    })
+    post.save().then(result=>{
+        res.json({post:result})
+    })
+    .catch(err=>{
+        console.log(err)
+    })
 })

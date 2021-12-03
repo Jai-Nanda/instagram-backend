@@ -3,6 +3,8 @@ const app = express()
 const mongoose = require("mongoose");
 const PORT = 5000
 const { MONGOURI } = require("./password");
+const auth = require('./routes/auth');
+const post = require('./routes/post');
 const cors = require('cors');
 // pW39HPpfBG1puyRe
 
@@ -23,11 +25,8 @@ require("./Schema/userSchema");
 require("./Schema/postSchema");
 app.use(express.json());
 
-app.use(require("./routes/auth"));
-// app.get('/', (req,res) =>{
-//     res.send('chal ja');
-// });
-
+app.use(auth);
+app.use(post);
 
 app.listen(PORT, ()=>{
     console.log('server started at port '+PORT);
