@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const User = mongoose.model("User")
+// const User = mongoose.model("User")
+const Post = mongoose.model("Post")
 const protect = require('../middleware/protect')
 
 router.post('/createpost',protect,(req,res)=>{
@@ -23,3 +24,4 @@ router.post('/createpost',protect,(req,res)=>{
         console.log(err)
     })
 })
+module.exports = router;
