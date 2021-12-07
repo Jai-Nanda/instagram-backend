@@ -2,7 +2,8 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
 // const User = mongoose.model("User")
-const Post = mongoose.model("Post")
+const Post = require('../Schema/postSchema')
+mongoose.model("Post")
 const protect = require('../middleware/protect')
 
 router.post('/createpost',protect,(req,res)=>{
@@ -14,7 +15,6 @@ router.post('/createpost',protect,(req,res)=>{
     const post = new Post({
         title,
         body,
-        photo:pic,
         postedBy:req.user
     })
     post.save().then(result=>{
