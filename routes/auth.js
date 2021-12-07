@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.send('Hello from the other side');
 });
 
-
+     
 router.get('/protected', protect, (req, res) => {
     res.send('protected route');
 }

@@ -20,4 +20,4 @@ const postSchema = new Schema({
     },
 });
 
-mongoose.model("Post", postSchema);
+mongoose.model("Instagram", postSchema);
