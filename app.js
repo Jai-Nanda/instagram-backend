@@ -25,7 +25,7 @@ require("./Schema/userSchema");
 require("./Schema/postSchema");
 app.use(express.json());
 app.use(auth)
-// app.use('/post', post)
+app.use('/post', post)
 
 app.listen(PORT, ()=>{
     console.log('server started at port '+PORT);

@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose')
 let User = require('../Schema/userSchema')
-// let User = mongoose.model('User')
-mongoose.model('User')
+User = mongoose.model('User')
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../password');

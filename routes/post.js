@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-// const User = mongoose.model("User")
-const Post = require('../Schema/postSchema')
-mongoose.model("Instagram")
+let Post = require('../Schema/postSchema')
+Post = mongoose.model('Post', Post)
 const protect = require('../middleware/protect')
 
 router.post('/createpost',protect,(req,res)=>{
